@@ -1,11 +1,18 @@
 {
-  "private": true,
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "publish-packages": "turbo run build lint && changeset version && changeset publish --scope ui"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanmooney/lib-test.git",
+    "directory": "packages/ui"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
@@ -16,5 +23,8 @@
     "turbo": "^1.9.3"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "ui-lib"
+  "name": "ui-lib",
+  "dependencies": {
+    "@chakra-ui/react": "^2.6.1"
+  }
 }
